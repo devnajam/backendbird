@@ -18,7 +18,6 @@ jobs:
       - name: Install Dependencies
         run: |
           yarn install
-          npm i -g @nestjs/cli
 
       - name: Format and Lint
         run: yarn format && yarn lint
