@@ -1,0 +1,30 @@
+name: cd
+run-name: Continous Deployment
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  backendbirds-cd:
+    runs-on: self-hosted
+    steps:
+      - name: Check backendbirds
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          clean: false
+
+      - name: Install Dependencies
+        run: |
+          yarn install
+          npm i -g @nestjs/cli
+
+      - name: Format and Lint
+        run: yarn format && yarn lint
+
+      - name: Test
+        run: yarn test
+
+      - name: Build
+        run: yarn build
