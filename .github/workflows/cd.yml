@@ -27,3 +27,6 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: Restart App
+        run: pm2 restart backendbirds
