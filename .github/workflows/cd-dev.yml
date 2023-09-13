@@ -3,7 +3,7 @@ run-name: Continous Deployment
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   backendbirds-cd:
